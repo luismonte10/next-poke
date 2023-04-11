@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styles from '../../styles/Todos.module.css';
 
 type todosProps = {
@@ -23,7 +24,9 @@ export default async function Todos() {
       <ul className={styles.todolist}>
         {todos.map((todo) => (
           <li key={todo.id}>
-            {todo.id} - {todo.title}
+            <Link href={`/todos/${todo.id}`}>
+              {todo.id} - {todo.title}
+            </Link>
           </li>
         ))}
       </ul>
