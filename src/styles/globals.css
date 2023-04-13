@@ -5,6 +5,10 @@
   font-family: Helvetica, sans-serif;
 }
 
+.main-container {
+  min-height: 70vh;
+}
+
 html {
   color-scheme: dark;
 }
