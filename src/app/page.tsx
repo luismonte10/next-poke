@@ -1,8 +1,10 @@
-import Image from 'next/image';
-
 import styles from '../styles/Home.module.css';
 
-type pokemonsProps = {
+import Image from 'next/image';
+
+import Card from '../components/Card';
+
+export type pokemonProps = {
   id: number;
   name: string;
   url: string;
@@ -15,7 +17,7 @@ export async function getPokemons() {
   const data = await fetch(`${url}/?limit=${maxPokemons}`);
   const pokemons = await data.json();
 
-  pokemons.results.forEach((item: pokemonsProps, index: number) => {
+  pokemons.results.forEach((item: pokemonProps, index: number) => {
     item.id = index + 1;
   });
 
@@ -23,7 +25,7 @@ export async function getPokemons() {
 }
 
 export default async function Home() {
-  const pokemons: pokemonsProps[] = await getPokemons();
+  const pokemons: pokemonProps[] = await getPokemons();
 
   return (
     <>
@@ -40,7 +42,7 @@ export default async function Home() {
       </div>
       <div className={styles.pokemon_container}>
         {pokemons.map((pokemon) => (
-          <p key={pokemon.id}>{pokemon.name}</p>
+          <Card key={pokemon.id} pokemon={pokemon} />
         ))}
       </div>
     </>
