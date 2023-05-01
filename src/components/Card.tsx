@@ -13,7 +13,7 @@ export default function Card({ pokemon }: { pokemon: pokemonProps }) {
   return (
     <div className={styles.card}>
       <Image
-        src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`}
+        src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg`}
         width="120"
         height="120"
         alt={pokemon.name}
