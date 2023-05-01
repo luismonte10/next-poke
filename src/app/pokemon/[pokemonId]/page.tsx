@@ -5,7 +5,9 @@ import styles from '../../../styles/Pokemon.module.css';
 export type pokemonProps = {
   id: number;
   name: string;
-  url: string;
+  types: { type: { name: string } }[];
+  height: number;
+  weight: number;
 };
 
 const getPokemon = async (id: number) => {
@@ -21,7 +23,7 @@ export default async function Pokemon({
 }: {
   params: { pokemonId: number };
 }) {
-  const pokemon = await getPokemon(params.pokemonId);
+  const pokemon: pokemonProps = await getPokemon(params.pokemonId);
 
   return (
     <div className={styles.pokemon_container}>

@@ -31,7 +31,7 @@ export default async function Home() {
     <>
       <div className={styles.title_container}>
         <h1 className={styles.title}>
-          Poke<span>Next</span>
+          Poké<span>Next</span>
         </h1>
         <Image
           src="/images/pokeball.png"
